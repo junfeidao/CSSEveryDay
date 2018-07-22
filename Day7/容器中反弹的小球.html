@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        .loader {
+            width: 10em;
+            height: 3em;
+            border: 0.3em solid silver;
+            border-radius: 3em;
+            font-size: 20px;
+            border-left-color: hotpink;
+            border-right-color: dodgerblue;
+            position: relative;
+            animation: spin 3s linear infinite;
+        }
+
+        /*在容器中画一个小球*/
+        .loader::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3em;
+            height: 3em;
+            border-radius: 50%;
+            background-color: dodgerblue;
+            animation: shift 3s linear infinite,
+                        change-color 3s linear infinite;
+        }
+
+        @keyframes shift {
+            50% {
+                left: 7em;
+            }
+        }
+
+        @keyframes change-color {
+            0%, 55% {
+                 background-color: dodgerblue;
+            }
+
+            0%, 50% {
+                background-color: hotpink;
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+</body>
+</html>
